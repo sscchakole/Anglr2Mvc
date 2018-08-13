@@ -168,6 +168,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.component.html" />
+    <Content Include="app\Components\Home\home.component.html" />
     <Content Include="app\Components\Menu\menu.component.html" />
     <Content Include="app\Components\User\user.component.html" />
     <Content Include="App_Data\UserDB.mdf" />

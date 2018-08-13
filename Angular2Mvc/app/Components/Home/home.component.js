@@ -12,7 +12,7 @@ var HomeComponent = /** @class */ (function () {
     }
     HomeComponent = __decorate([
         core_1.Component({
-            template: '<h1>Asp.Net MVC With Angular 2</h1>'
+            templateUrl: 'app/Components/Home/home.component.html'
         })
     ], HomeComponent);
     return HomeComponent;
