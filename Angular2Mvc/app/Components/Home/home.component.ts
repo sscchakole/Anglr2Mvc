@@ -1,7 +1,7 @@
 ﻿import { Component } from "@angular/core";
 
 @Component({
-    template: '<h1>Asp.Net MVC With Angular 2</h1>'
+    templateUrl: 'app/Components/Home/home.component.html'
 })
 
 export class HomeComponent {
