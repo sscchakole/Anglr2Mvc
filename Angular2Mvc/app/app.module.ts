@@ -12,19 +12,44 @@ import { UserComponent } from './components/User/user.component';
 import { UserService } from './Service/user.service'
 import { Ng2Bs3ModalModule } from 'ng2-bs3-modal/ng2-bs3-modal';
 
+//import { AlertComponent } from './_directives/index';
+import { AuthGuard } from './_guards/auth.guard';
+import { JwtInterceptor } from './_helpers/jwt.interceptor';
+import { AlertService } from './Service/alert.service';
+import { AuthenticationService } from './Service/authentication.service';
+// used to create fake backend
+import { fakeBackendProvider } from './_helpers/fack-backend';
+import { LoginComponent } from './Components/Login/login.component';
+import { RegisterComponent } from './Components/Register/register.component';
+import { UserTempService } from './Service/usertemp.service';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
+
 
 @NgModule({
-    imports: [BrowserModule, ReactiveFormsModule, HttpModule, routing, Ng2Bs3ModalModule],
+    imports: [BrowserModule, ReactiveFormsModule, HttpClientModule, routing, Ng2Bs3ModalModule],
     declarations: [
         AppComponent,
         MenuComponent,
         UserComponent,
-        HomeComponent
+        HomeComponent,
+        LoginComponent,
+        RegisterComponent
         
     ],
     providers: [
-        { provide: APP_BASE_HREF, useValue: '/' },
-        UserService
+        //{ provide: APP_BASE_HREF, useValue: '/' },
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: JwtInterceptor,
+            multi: true
+        },
+        UserService,
+        UserTempService,
+        AuthGuard,
+        AlertService,
+        AuthenticationService,
+        fakeBackendProvider
     ],
     bootstrap: [AppComponent]
 })

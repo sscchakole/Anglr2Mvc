@@ -7,20 +7,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var user_service_1 = require("./service/user.service");
-var usertemp_service_1 = require("./Service/usertemp.service");
-var AppComponent = /** @class */ (function () {
-    function AppComponent() {
+var RegisterComponent = /** @class */ (function () {
+    function RegisterComponent() {
     }
-    AppComponent = __decorate([
+    RegisterComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            selector: "user-app",
-            templateUrl: 'app/app.component.html',
-            providers: [user_service_1.UserService, usertemp_service_1.UserTempService]
+            templateUrl: 'app/Components/Register/register.component.html'
         })
-    ], AppComponent);
-    return AppComponent;
+    ], RegisterComponent);
+    return RegisterComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.RegisterComponent = RegisterComponent;
+//# sourceMappingURL=register.component.js.map

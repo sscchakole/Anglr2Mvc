@@ -169,7 +169,9 @@
   <ItemGroup>
     <Content Include="app\app.component.html" />
     <Content Include="app\Components\Home\home.component.html" />
+    <Content Include="app\Components\Login\login.component.html" />
     <Content Include="app\Components\Menu\menu.component.html" />
+    <Content Include="app\Components\Register\register.componet.html" />
     <Content Include="app\Components\User\user.component.html" />
     <Content Include="App_Data\UserDB.mdf" />
     <Content Include="App_Data\UserDB_log.ldf">
@@ -192,6 +194,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="images\loading.gif" />
+    <Content Include="images\spin.gif" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="package.json" />
@@ -236,13 +239,21 @@
     <TypeScriptCompile Include="app\app.module.ts" />
     <TypeScriptCompile Include="app\app.routing.ts" />
     <TypeScriptCompile Include="app\Components\Home\home.component.ts" />
+    <TypeScriptCompile Include="app\Components\Login\login.component.ts" />
     <TypeScriptCompile Include="app\Components\Menu\menu.component.ts" />
+    <TypeScriptCompile Include="app\Components\Register\register.component.ts" />
     <TypeScriptCompile Include="app\Components\User\user.component.ts" />
+    <TypeScriptCompile Include="app\Service\alert.service.ts" />
+    <TypeScriptCompile Include="app\Service\authentication.service.ts" />
+    <TypeScriptCompile Include="app\Service\usertemp.service.ts" />
+    <TypeScriptCompile Include="app\_guards\auth.guard.ts" />
     <TypeScriptCompile Include="app\main.ts" />
     <TypeScriptCompile Include="app\Models\user.ts" />
     <TypeScriptCompile Include="app\Service\user.service.ts" />
     <TypeScriptCompile Include="app\Shared\enum.ts" />
     <TypeScriptCompile Include="app\Shared\global.ts" />
+    <TypeScriptCompile Include="app\_helpers\fack-backend.ts" />
+    <TypeScriptCompile Include="app\_helpers\jwt.interceptor.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
