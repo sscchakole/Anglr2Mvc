@@ -23,7 +23,7 @@ var HomeComponent = /** @class */ (function () {
     HomeComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            templateUrl: 'app/Components/Home/home.component.html'
+            templateUrl: 'home.component.html'
         }),
         __metadata("design:paramtypes", [usertemp_service_1.UserTempService])
     ], HomeComponent);

@@ -18,7 +18,7 @@ namespace Angular2Mvc.Controllers
 
         public HttpResponseMessage Post([FromBody]User value)
         {
-            db.Users.Add(value);
+           // db.Users.Add(value);
             return ToJson(db.SaveChanges());
         }
 
@@ -29,7 +29,7 @@ namespace Angular2Mvc.Controllers
         }
         public HttpResponseMessage Delete(int id)
         {
-            db.Users.Remove(db.Users.FirstOrDefault(x => x.Id == id));
+           // db.Users.Remove(db.Users.FirstOrDefault(x => x.Id == id));
             return ToJson(db.SaveChanges());
         }
     }

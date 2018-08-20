@@ -16,7 +16,7 @@ var AppComponent = /** @class */ (function () {
         core_1.Component({
             moduleId: module.id,
             selector: "user-app",
-            templateUrl: 'app/app.component.html',
+            templateUrl: 'app.component.html',
             providers: [user_service_1.UserService, usertemp_service_1.UserTempService]
         })
     ], AppComponent);

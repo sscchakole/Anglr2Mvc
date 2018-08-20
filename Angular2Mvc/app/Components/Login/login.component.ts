@@ -6,7 +6,7 @@ import { AuthenticationService } from '../../Service/authentication.service';
 
 @Component({
     moduleId: module.id,
-    templateUrl: 'app/Components/Login/login.component.html'
+    templateUrl: 'login.component.html'
 })
 
 export class LoginComponent implements OnInit {
@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit {
     }
 
     login() {
+       
         this.loading = true;
         this.authenticationService.login(this.model.username, this.model.password)
             .subscribe(

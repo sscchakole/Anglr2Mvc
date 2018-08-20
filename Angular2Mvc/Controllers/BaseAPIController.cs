@@ -12,7 +12,7 @@ namespace Angular2Mvc.Controllers
 {
     public class BaseAPIController : ApiController
     {
-        protected readonly UserDBEntities db = new UserDBEntities();
+        protected readonly AuthContext db = new AuthContext();
 
         protected HttpResponseMessage ToJson(dynamic obj)
         {

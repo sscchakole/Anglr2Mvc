@@ -1,7 +1,7 @@
 ﻿import { NgModule } from '@angular/core';
 import { APP_BASE_HREF } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
@@ -27,7 +27,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
 @NgModule({
-    imports: [BrowserModule, ReactiveFormsModule, HttpClientModule, routing, Ng2Bs3ModalModule],
+    imports: [BrowserModule, ReactiveFormsModule, FormsModule, HttpClientModule, routing, Ng2Bs3ModalModule],
     declarations: [
         AppComponent,
         MenuComponent,
@@ -38,7 +38,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
         
     ],
     providers: [
-        //{ provide: APP_BASE_HREF, useValue: '/' },
+        { provide: APP_BASE_HREF, useValue: '/' },
         {
             provide: HTTP_INTERCEPTORS,
             useClass: JwtInterceptor,

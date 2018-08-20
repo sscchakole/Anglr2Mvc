@@ -22,6 +22,7 @@ var FakeBackendInterceptor = /** @class */ (function () {
     function FakeBackendInterceptor() {
     }
     FakeBackendInterceptor.prototype.intercept = function (request, next) {
+        debugger;
         // array in local storage for registered users
         var users = JSON.parse(localStorage.getItem('users')) || [];
         // wrap in delayed observable to simulate server api call

@@ -13,7 +13,7 @@ var MenuComponent = /** @class */ (function () {
     MenuComponent = __decorate([
         core_1.Component({
             selector: "app-menu",
-            templateUrl: 'app/components/Menu/menu.component.html'
+            templateUrl: 'app/Components/Menu/menu.component.html'
         })
     ], MenuComponent);
     return MenuComponent;

@@ -4,7 +4,7 @@ import { UserTempService } from '../../Service/usertemp.service';
 
 @Component({
     moduleId: module.id,
-    templateUrl: 'app/Components/Home/home.component.html'
+    templateUrl: 'home.component.html'
 })
 
 export class HomeComponent implements OnInit {

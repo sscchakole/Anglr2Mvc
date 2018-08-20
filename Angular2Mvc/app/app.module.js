@@ -7,6 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var common_1 = require("@angular/common");
 var platform_browser_1 = require("@angular/platform-browser");
 var forms_1 = require("@angular/forms");
 var app_component_1 = require("./app.component");
@@ -32,7 +33,7 @@ var AppModule = /** @class */ (function () {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, forms_1.ReactiveFormsModule, http_1.HttpClientModule, app_routing_1.routing, ng2_bs3_modal_1.Ng2Bs3ModalModule],
+            imports: [platform_browser_1.BrowserModule, forms_1.ReactiveFormsModule, forms_1.FormsModule, http_1.HttpClientModule, app_routing_1.routing, ng2_bs3_modal_1.Ng2Bs3ModalModule],
             declarations: [
                 app_component_1.AppComponent,
                 menu_component_1.MenuComponent,
@@ -42,7 +43,7 @@ var AppModule = /** @class */ (function () {
                 register_component_1.RegisterComponent
             ],
             providers: [
-                //{ provide: APP_BASE_HREF, useValue: '/' },
+                { provide: common_1.APP_BASE_HREF, useValue: '/' },
                 {
                     provide: http_1.HTTP_INTERCEPTORS,
                     useClass: jwt_interceptor_1.JwtInterceptor,

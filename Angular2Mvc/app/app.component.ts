@@ -13,7 +13,7 @@ import { UserTempService } from './Service/usertemp.service'
 @Component({
     moduleId: module.id,
     selector: "user-app",
-    templateUrl: 'app/app.component.html',
+    templateUrl: 'app.component.html',
     providers: [UserService, UserTempService]
 
 })

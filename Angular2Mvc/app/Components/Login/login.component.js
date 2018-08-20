@@ -42,7 +42,7 @@ var LoginComponent = /** @class */ (function () {
     LoginComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            templateUrl: 'app/Components/Login/login.component.html'
+            templateUrl: 'login.component.html'
         }),
         __metadata("design:paramtypes", [router_1.ActivatedRoute,
             router_1.Router,
