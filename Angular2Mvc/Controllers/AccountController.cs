@@ -1,6 +1,7 @@
 ﻿using Angular2Mvc.DBContext;
 using Angular2Mvc.Models;
 using Microsoft.AspNet.Identity;
+using Microsoft.Owin.Security;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,7 @@ namespace Angular2Mvc.Controllers
             _repo = new AuthRepository();
         }
 
+       
         // POST api/Account/Register
         [AllowAnonymous]
         [Route("Register")]
@@ -31,7 +33,7 @@ namespace Angular2Mvc.Controllers
                 return BadRequest(ModelState);
             }
 
-            var result = await _repo.RegisterUser(userModel);
+            IdentityResult result = await _repo.RegisterUser(userModel);
 
             IHttpActionResult errorResult = GetErrorResult(result);
 
@@ -40,7 +42,7 @@ namespace Angular2Mvc.Controllers
                 return errorResult;
             }
 
-            return Ok();
+            return Ok(result);
         }
 
         protected override void Dispose(bool disposing)

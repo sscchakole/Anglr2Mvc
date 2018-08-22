@@ -18,6 +18,7 @@ var AuthGuard = /** @class */ (function () {
     AuthGuard.prototype.canActivate = function (route, state) {
         if (localStorage.getItem('currentUser')) {
             // logged in so return true
+            console.log('i am checking to see if you are logged in');
             return true;
         }
         // not logged in so redirect to login page with the return url

@@ -13,19 +13,22 @@ namespace Angular2Mvc.DBContext
     {
         private AuthContext _ctx;
 
-        private UserManager<IdentityUser> _userManager;
+        private UserManager<ApplicationUser> _userManager;
 
         public AuthRepository()
         {
             _ctx = new AuthContext();
-            _userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>(_ctx));
+            _userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(_ctx));
         }
 
         public async Task<IdentityResult> RegisterUser(User user)
         {
-            var idenityUser = new IdentityUser
+            var idenityUser = new ApplicationUser
             {
-                UserName = user.Username
+                UserName = user.Username,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                //Password = user.Password
             };
 
             var result = await _userManager.CreateAsync(idenityUser, user.Password);

@@ -16,13 +16,20 @@ var AuthenticationService = /** @class */ (function () {
     function AuthenticationService(http) {
         this.http = http;
     }
+    AuthenticationService.prototype.register = function (model) {
+        return this.http.post('/api/account/register', model);
+    };
     AuthenticationService.prototype.login = function (username, password) {
-        return this.http.post('/api/authenticate', { username: username, password: password })
+        var data = "grant_type=password&username=" + username + "&password=" + password;
+        var headers = new http_1.HttpHeaders();
+        headers.append('Content-Type', 'application/x-www-form-urlencoded');
+        return this.http.post('/token', data, { headers: headers })
             .map(function (user) {
             // login successful if there's a jwt token in the response
-            if (user && user.token) {
+            console.log('user: ' + user);
+            if (user && user.access_token) {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
-                localStorage.setItem('currentUser', JSON.stringify(user));
+                localStorage.setItem('currentUser', JSON.stringify({ token: user.access_token, token_type: user.token_type, username: username }));
             }
             return user;
         });

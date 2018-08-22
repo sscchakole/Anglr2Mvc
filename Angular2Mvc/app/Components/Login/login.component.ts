@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
         private alertService: AlertService) { }
 
     ngOnInit() {
+       
         // reset login status
         this.authenticationService.logout();
 
@@ -29,7 +30,7 @@ export class LoginComponent implements OnInit {
     }
 
     login() {
-       
+        debugger;
         this.loading = true;
         this.authenticationService.login(this.model.username, this.model.password)
             .subscribe(

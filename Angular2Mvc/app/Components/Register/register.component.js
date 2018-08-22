@@ -13,10 +13,12 @@ var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var usertemp_service_1 = require("../../Service/usertemp.service");
 var alert_service_1 = require("../../Service/alert.service");
+var authentication_service_1 = require("../../Service/authentication.service");
 var RegisterComponent = /** @class */ (function () {
-    function RegisterComponent(router, userService, alertService) {
+    function RegisterComponent(router, userService, authenticationService, alertService) {
         this.router = router;
         this.userService = userService;
+        this.authenticationService = authenticationService;
         this.alertService = alertService;
         this.model = {};
         this.loading = false;
@@ -24,7 +26,7 @@ var RegisterComponent = /** @class */ (function () {
     RegisterComponent.prototype.register = function () {
         var _this = this;
         this.loading = true;
-        this.userService.create(this.model)
+        this.authenticationService.register(this.model)
             .subscribe(function (data) {
             // set success message and pass true paramater to persist the message after redirecting to the login page
             _this.alertService.success('Registration successful', true);
@@ -41,6 +43,7 @@ var RegisterComponent = /** @class */ (function () {
         }),
         __metadata("design:paramtypes", [router_1.Router,
             usertemp_service_1.UserTempService,
+            authentication_service_1.AuthenticationService,
             alert_service_1.AlertService])
     ], RegisterComponent);
     return RegisterComponent;
