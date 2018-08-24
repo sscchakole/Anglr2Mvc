@@ -11,8 +11,10 @@ var JwtInterceptor = /** @class */ (function () {
     function JwtInterceptor() {
     }
     JwtInterceptor.prototype.intercept = function (request, next) {
+        debugger;
         // add authorization header with jwt token if available
         var currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        console.log(currentUser);
         if (currentUser && currentUser.token) {
             request = request.clone({
                 setHeaders: {

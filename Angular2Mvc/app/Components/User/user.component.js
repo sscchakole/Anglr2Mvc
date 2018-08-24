@@ -49,7 +49,7 @@ var UserComponent = /** @class */ (function () {
         this.SetControlsState(true);
         this.modalTitle = "Edit User";
         this.modalBtnTitle = "Update";
-        this.user = this.users.filter(function (x) { return x.Id == id; })[0];
+        this.user = this.users.filter(function (x) { return x.id == id; })[0];
         this.userFrm.setValue(this.user);
         this.modal.open();
     };
@@ -58,7 +58,7 @@ var UserComponent = /** @class */ (function () {
         this.SetControlsState(false);
         this.modalTitle = "Confirm to Delete?";
         this.modalBtnTitle = "Delete";
-        this.user = this.users.filter(function (x) { return x.Id == id; })[0];
+        this.user = this.users.filter(function (x) { return x.id == id; })[0];
         this.userFrm.setValue(this.user);
         this.modal.open();
     };

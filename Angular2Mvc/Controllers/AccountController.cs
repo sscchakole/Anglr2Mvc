@@ -42,7 +42,7 @@ namespace Angular2Mvc.Controllers
                 return errorResult;
             }
 
-            return Ok(result);
+            return Ok();
         }
 
         protected override void Dispose(bool disposing)

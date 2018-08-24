@@ -1,9 +1,7 @@
 ﻿import { NgModule } from '@angular/core';
-import { APP_BASE_HREF } from '@angular/common';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule, FormsModule} from '@angular/forms';
-//import { HttpModule } from '@angular/http';
-
 import { AppComponent } from './app.component';
 import { routing } from './app.routing';
 import { HomeComponent } from './components/Home/home.component';
@@ -18,7 +16,7 @@ import { JwtInterceptor } from './_helpers/jwt.interceptor';
 import { AlertService } from './Service/alert.service';
 import { AuthenticationService } from './Service/authentication.service';
 // used to create fake backend
-import { fakeBackendProvider } from './_helpers/fack-backend';
+//import { fakeBackendProvider } from './_helpers/fack-backend';
 import { LoginComponent } from './Components/Login/login.component';
 import { RegisterComponent } from './Components/Register/register.component';
 import { UserTempService } from './Service/usertemp.service';
@@ -38,18 +36,17 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
         
     ],
     providers: [
-        { provide: APP_BASE_HREF, useValue: '/' },
-        {
-            provide: HTTP_INTERCEPTORS,
-            useClass: JwtInterceptor,
-            multi: true
-        },
         //UserService,
         UserTempService,
         AuthGuard,
         AlertService,
         AuthenticationService,
-        fakeBackendProvider
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: JwtInterceptor,
+            multi: true
+        },
+        //fakeBackendProvider
     ],
     bootstrap: [AppComponent]
 })

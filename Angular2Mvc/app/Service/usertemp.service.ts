@@ -20,7 +20,7 @@ export class UserTempService {
     }
 
     update(user: IUser) {
-        return this.http.put('/api/userapi/' + user.Id, user);
+        return this.http.put('/api/userapi/' + user.id, user);
     }
 
     delete(id: number) {

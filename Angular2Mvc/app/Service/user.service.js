@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var http_1 = require("@angular/http");
+var http_1 = require("@angular/common/http");
 var Observable_1 = require("rxjs/Observable");
 require("rxjs/add/operator/map");
 require("rxjs/add/operator/do");
@@ -20,41 +20,41 @@ var UserService = /** @class */ (function () {
         this._http = _http;
     }
     UserService.prototype.get = function (url) {
-        return this._http.get(url)
-            .map(function (response) { return response.json(); })
-            // .do(data => console.log("All: " + JSON.stringify(data)))
-            .catch(this.handleError);
+        return this._http.get(url);
+        //.map(response => response)
+        // .do(data => console.log("All: " + JSON.stringify(data)))
+        //.catch(this.handleError);
     };
     UserService.prototype.post = function (url, model) {
         var body = JSON.stringify(model);
-        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
-        var options = new http_1.RequestOptions({ headers: headers });
-        return this._http.post(url, body, options)
-            .map(function (response) { return response.json(); })
-            .catch(this.handleError);
+        //let headers = new Headers({ 'Content-Type': 'application/json' });
+        //let options = new RequestOptions({ headers: headers });
+        return this._http.post(url, body);
+        //.map((response: Response) => <any>response.json())
+        //.catch(this.handleError);
     };
     UserService.prototype.put = function (url, id, model) {
         var body = JSON.stringify(model);
-        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
-        var options = new http_1.RequestOptions({ headers: headers });
-        return this._http.put(url + id, body, options)
+        //let headers = new Headers({ 'Content-Type': 'application/json' });
+        //let options = new RequestOptions({ headers: headers });
+        return this._http.put(url + id, body)
             .map(function (response) { return response.json(); })
             .catch(this.handleError);
     };
     UserService.prototype.delete = function (url, id) {
-        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
-        var options = new http_1.RequestOptions({ headers: headers });
-        return this._http.delete(url + id, options)
+        //let headers = new Headers({ 'Content-Type': 'application/json' });
+        //let options = new RequestOptions({ headers: headers });
+        return this._http.delete(url + id)
             .map(function (response) { return response.json(); })
             .catch(this.handleError);
     };
     UserService.prototype.handleError = function (error) {
         console.error(error);
-        return Observable_1.Observable.throw(error.json().error || 'Server error');
+        return Observable_1.Observable.throw(error || 'Server error');
     };
     UserService = __decorate([
         core_1.Injectable(),
-        __metadata("design:paramtypes", [http_1.Http])
+        __metadata("design:paramtypes", [http_1.HttpClient])
     ], UserService);
     return UserService;
 }());

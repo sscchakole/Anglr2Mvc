@@ -61,7 +61,7 @@ export class UserComponent implements OnInit
         this.SetControlsState(true);
         this.modalTitle = "Edit User";
         this.modalBtnTitle = "Update";
-        this.user = this.users.filter(x => x.Id == id)[0];
+        this.user = this.users.filter(x => x.id == id)[0];
         this.userFrm.setValue(this.user);
         this.modal.open();
     }
@@ -71,7 +71,7 @@ export class UserComponent implements OnInit
         this.SetControlsState(false);
         this.modalTitle = "Confirm to Delete?";
         this.modalBtnTitle = "Delete";
-        this.user = this.users.filter(x => x.Id == id)[0];
+        this.user = this.users.filter(x => x.id == id)[0];
         this.userFrm.setValue(this.user);
         this.modal.open();
     }

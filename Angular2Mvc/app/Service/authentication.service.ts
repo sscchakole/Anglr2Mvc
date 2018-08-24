@@ -5,7 +5,8 @@ import 'rxjs/add/operator/map'
  
 @Injectable()
 export class AuthenticationService {
-
+    isAuthenticate: boolean = false;
+    username: string;
 
 
     constructor(private http: HttpClient) { }
@@ -15,16 +16,18 @@ export class AuthenticationService {
     }
 
     login(username: string, password: string) {
+        debugger;
         var data = "grant_type=password&username=" + username + "&password=" + password;
         let headers = new HttpHeaders();
         headers.append('Content-Type', 'application/x-www-form-urlencoded');
         return this.http.post<any>('/token', data, { headers: headers })
             .map(user => {
                 // login successful if there's a jwt token in the response
-                console.log('user: ' + user);
                 if (user && user.access_token) {
                     // store user details and jwt token in local storage to keep user logged in between page refreshes
-                    localStorage.setItem('currentUser', JSON.stringify({ token:user.access_token, token_type:user.token_type, username:username }));
+                    localStorage.setItem('currentUser', JSON.stringify({ token: user.access_token, token_type: user.token_type, username: username, isAuth: true }));
+                    this.isAuthenticate = true;
+                    this.username = username;
                 }
                 
                 return user;

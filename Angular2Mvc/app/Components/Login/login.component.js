@@ -30,10 +30,10 @@ var LoginComponent = /** @class */ (function () {
     };
     LoginComponent.prototype.login = function () {
         var _this = this;
-        debugger;
         this.loading = true;
         this.authenticationService.login(this.model.username, this.model.password)
             .subscribe(function (data) {
+            console.log('user: ' + data);
             _this.router.navigate([_this.returnUrl]);
         }, function (error) {
             _this.alertService.error(error);

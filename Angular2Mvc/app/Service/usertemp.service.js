@@ -25,7 +25,7 @@ var UserTempService = /** @class */ (function () {
         return this.http.post('/api/userapi/', user);
     };
     UserTempService.prototype.update = function (user) {
-        return this.http.put('/api/userapi/' + user.Id, user);
+        return this.http.put('/api/userapi/' + user.id, user);
     };
     UserTempService.prototype.delete = function (id) {
         return this.http.delete('/api/userapi/' + id);

@@ -11,14 +11,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
+var authentication_service_1 = require("../Service/authentication.service");
 var AuthGuard = /** @class */ (function () {
-    function AuthGuard(router) {
+    function AuthGuard(router, authService) {
         this.router = router;
+        this.authService = authService;
     }
     AuthGuard.prototype.canActivate = function (route, state) {
         if (localStorage.getItem('currentUser')) {
             // logged in so return true
-            console.log('i am checking to see if you are logged in');
+            this.authService.isAuthenticate = true;
             return true;
         }
         // not logged in so redirect to login page with the return url
@@ -27,7 +29,7 @@ var AuthGuard = /** @class */ (function () {
     };
     AuthGuard = __decorate([
         core_1.Injectable(),
-        __metadata("design:paramtypes", [router_1.Router])
+        __metadata("design:paramtypes", [router_1.Router, authentication_service_1.AuthenticationService])
     ], AuthGuard);
     return AuthGuard;
 }());
